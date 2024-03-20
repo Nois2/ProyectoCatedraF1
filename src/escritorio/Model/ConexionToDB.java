@@ -5,11 +5,10 @@ import java.sql.*;
 public class ConexionToDB {
     Connection cn;
 
-
     public ConexionToDB(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/escuela", "noel", "1234");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/sistematelecomunicaciones", "root", "");
             System.out.println("Conexión exitosa!");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Ocurrió este error: " + e.getMessage());
