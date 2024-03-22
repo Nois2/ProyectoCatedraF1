@@ -76,10 +76,12 @@ CREATE TABLE IF NOT EXISTS `CasoRequerimiento` (
     `porcentajeAvance` INT NOT NULL, /*Este es un campo calculado*/
     `FK_idEstadoRequerimiento` INT NOT NULL,
     `FK_idEmpleado` INT NOT NULL,
+    `FK_idEmpleadoProbador` INT NULL,
     `FK_idProyecto` INT NOT NULL,
      KEY `FK_idEstadoRequerimiento` (`FK_idEstadoRequerimiento`),
      KEY `FK_idEmpleado` (`FK_idEmpleado`),
-     KEY `FK_idProyecto` (`FK_idProyecto`)
+     KEY `FK_idProyecto` (`FK_idProyecto`),
+     KEY `FK_idEmpleadoProbador` (`FK_idEmpleadoProbador`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 ALTER TABLE `Empleados`
@@ -133,5 +135,11 @@ ON UPDATE CASCADE;
 ALTER TABLE `CasoRequerimiento`
 ADD CONSTRAINT `fk_Empleados_CasoProyecto`
 FOREIGN KEY (`FK_idEmpleado`) REFERENCES `Empleados` (`PK_idEmpleado`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE `CasoRequerimiento`
+ADD CONSTRAINT `fk_Empleados_CasoProyec2to`
+FOREIGN KEY (`FK_idEmpleadoProbador`) REFERENCES `Empleados` (`PK_idEmpleado`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;

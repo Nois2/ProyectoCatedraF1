@@ -1,5 +1,7 @@
 package escritorio.View.JFRAME;
 import escritorio.Controller.LoginController;
+import escritorio.View.JFRAME.parrafo1.P1;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +26,10 @@ public class Login extends JFrame{
                 boolean respuesta = controlador.login(txtEmail.getText(), new String(txtPassword.getPassword()));
                 if(respuesta){
                     JOptionPane.showMessageDialog(null,"Iniciaste Sesion");
+
+                    Login.this.setVisible(false); // Oculta la ventana de inicio de sesión
+
+                    P1 p = new P1();
                 }
                 else {
                     JOptionPane.showMessageDialog(null,"ERROR");

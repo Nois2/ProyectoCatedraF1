@@ -76,7 +76,7 @@ BEGIN
         SET error_occurred = TRUE;
     ELSE
       /*  -- Obtener el nivel de acceso del empleado*/
-        SET nivelAcceso = obtenerNivelDeAccesoDeEmpleado(sp_idEmpleado);
+        SET nivelAcceso = sp_obtenerNivelDeAccesoDeEmpleado(sp_idEmpleado);
 
        /* -- Verificar si el nivel de acceso permite crear casos sin adjunto */
         IF nivelAcceso = 'Jefes de áreas funcionales' THEN
