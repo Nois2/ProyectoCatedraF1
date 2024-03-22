@@ -7,7 +7,8 @@ public class ConexionToDB {
 
     public ConexionToDB(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        //    Class.forName("com.mysql.cj.jdbc.Driver"); //Descomenta este si es MySQL
+            Class.forName("org.mariadb.jdbc.Driver"); //Descomenta este si es mariadb
             cn = DriverManager.getConnection("jdbc:mysql://localhost/sistematelecomunicaciones", "root", "");
             System.out.println("Conexión exitosa!");
         } catch (SQLException | ClassNotFoundException e) {
